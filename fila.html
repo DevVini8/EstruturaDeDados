@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>Simulador: Fila</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .input-group {
+      margin-bottom: 10px;
+    }
+
+    .input-group label {
+      display: inline-block;
+      width: 70px;
+      text-align: right;
+      margin-right: 10px;
+    }
+
+    .input-group input[type="number"],
+    .input-group input[type="button"] {
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 5px 10px;
+      font-size: 14px;
+      background-color: #337ab7;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    .btn:hover {
+      background-color: #23527c;
+    }
+
+    #canvas {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .valor {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      font-weight: bold;
+      margin: 5px;
+    }
+
+    #log {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+      background-color: #f9f9f9;
+      margin-bottom: 20px;
+      color: black;
+    }
+
+    
+
+    .caixa{
+      width: 50px;
+      height: 60px;
+      margin: 0px;
+      border: 5px solid #f9f9f9 ;
+      background: #f9f9f9 ;
+      color: black;
+      font-size: 20px ;
+      text-align: center;
+    }
+
+    #saida{
+      border: 1px solid red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+  </style>
+
+  <script src="script2.js" ></script>
+
+</head>
+
+<body>
+  <div class="container">
+    <h3>Simulador: Estrutura Fila (FIFO)</h3>
+
+    <div class="input-group">
+      <label for="txttamanho">Tamanho:</label>
+      <input type="number" id="txttamanho" value="8" min="2" max="10">
+      <input onclick="criar()" type="button" id="btcriar" class="btn" value="Criar">
+    </div>
+
+    <div class="input-group">
+      <label for="txtvalor">Valor:</label>
+      <input type="number" id="txtvalor" min="-99" max="99">
+      <input onclick="enfileirar()" type="button" id="btenfileirar" class="btn" value="Enfileirar">
+      <input onclick="desEnfileirar()" type="button" id="btdefileirar" class="btn" value="Desenfileirar">
+    </div>
+
+    <div id="canvas"></div>
+
+    
+    
+    <div id="log">
+      <input disabled="disabled" type="text" class="caixa" id="caixa1"> 
+      <input disabled="disabled" type="text" class="caixa" id="caixa2"> 
+      <input disabled="disabled" type="text" class="caixa" id="caixa3"> 
+      <input disabled="disabled" type="text" class="caixa" id="caixa4"> 
+      <input disabled="disabled" type="text" class="caixa" id="caixa5"> 
+      <input disabled="disabled" type="text" class="caixa" id="caixa6"> 
+      <input disabled="disabled" type="text" class="caixa" id="caixa7"> 
+      <input disabled="disabled" type="text" class="caixa" id="caixa8"> 
+      <input disabled="disabled" type="text" class="caixa" id="caixa9"> 
+      <input disabled="disabled" type="text" class="caixa" id="caixa10"> 
+    </div>
+
+    
+  </div>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<title>Simulador:Pilha</title>
+<head>
+	<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+			color: #333;
+			padding: 20px;
+		}
+
+		.container {
+			max-width: 600px;
+			margin: 0 auto;
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+
+		h3 {
+			margin-bottom: 20px;
+			text-align: center;
+		}
+
+		.input-group {
+			margin-bottom: 10px;
+		}
+
+		.input-group label {
+			display: inline-block;
+			width: 70px;
+			text-align: right;
+			margin-right: 10px;
+		}
+
+		.input-group input[type="number"],
+		.input-group input[type="button"] {
+			padding: 5px 10px;
+			font-size: 14px;
+		}
+
+		.btn {
+			display: inline-block;
+			padding: 5px 10px;
+			font-size: 14px;
+			background-color: #337ab7;
+			color: #fff;
+			border: none;
+			cursor: pointer;
+			border-radius: 3px;
+		}
+
+		.btn:hover {
+			background-color: #23527c;
+		}
+
+		#canvas {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+			margin-bottom: 20px;
+		}
+
+		.valor {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 40px;
+			height: 40px;
+			background-color: #eee;
+			border: 1px solid #ccc;
+			font-size: 14px;
+			font-weight: bold;
+			margin: 5px;
+		}
+
+		.caixa{
+			margin-top: 0;
+      width: 40px;
+      height: 40px;
+      margin: 0px;
+      border: 5px solid #f9f9f9 ;
+      background: #f9f9f9 ;
+      color: black;
+      font-size: 20px ;
+      text-align: center;
+			margin-left: 40%;
+    }
+
+		#log {
+			max-height: 450px;
+			border: 1px solid #ccc;
+			background-color: #f9f9f9;
+			margin-bottom: 20px;
+		}
+
+		#log p {
+			margin-bottom: 5px;
+		}
+	</style>
+
+	<script src="script.js" ></script>
+
+</head>
+
+<body>
+	<div class="container">
+		<h3>Simulador: Estrutura Pilha (LIFO)</h3>
+		<br>
+		<div class="input-group input-group-sm">
+			<div class="input-group-prepend">
+				<label class="input-group-text" for="txttamanho">Tamanho:&nbsp;</label>
+			</div>
+			<input class="campo" type="number" id="txttamanho"  min="1" max="10">
+			<input onclick="criar()" type="button" class="btn btn-outline-primary btn-sm" id="btcriar" value="Criar">
+		</div>
+		<br>
+		<div class="input-group input-group-sm">
+			<div class="input-group-prepend">
+				<label class="input-group-text" for="txtvalor">Valor:&nbsp;</label>
+			</div>
+			<input type="number" class="campo" id="txtvalor" min="-999" max="999">
+			<input onclick="empilhar()" type="button" class="btn btn-outline-primary btn-sm" id="btempilhar" value="Empilhar">
+			<input onclick="empilharAleatorio()" type="button" class="btn btn-outline-primary btn-sm" id="btaleatorio" value="Empilhar Aleatório">
+		</div>
+		<br>
+		<div class="input-group">
+			<input onclick="desEmpilhar()" class="btn btn-outline-primary btn-sm" type="button" id="btdesempilhar" value="Desempilhar">
+			<input onclick="somar()" class="btn btn-outline-success btn-sm" type="button" id="btadd" value="&nbsp;&nbsp;+&nbsp;&nbsp;">
+			<input onclick="subtrair()" class="btn btn-outline-success btn-sm" type="button" id="btsub" value="&nbsp;&nbsp;-&nbsp;&nbsp;">
+			<input onclick="multiplicar()" class="btn btn-outline-success btn-sm" type="button" id="btmul" value="&nbsp;&nbsp;*&nbsp;&nbsp;">
+			<input onclick="dividir()" class="btn btn-outline-success btn-sm" type="button" id="btdiv" value="&nbsp;&nbsp;/&nbsp;&nbsp;">
+			<input onclick="incrementar()" class="btn btn-outline-danger btn-sm" type="button" id="btinc" value="&nbsp;INC&nbsp;">
+			<input onclick="decrementar()" class="btn btn-outline-danger btn-sm" type="button" id="btdec" value="&nbsp;DEC&nbsp;">
+		</div>
+		<br>
+		<div id="canvas">
+			<table id="tpilha">
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+		<br>
+		<h4>Saída:</h4>
+		<div id="log">
+			<input  disabled="disabled" type="text" class="caixa" id="caixa1"> <br>
+      <input disabled="disabled" type="text" class="caixa" id="caixa2"> <br>
+      <input disabled="disabled" type="text" class="caixa" id="caixa3"> <br>
+      <input disabled="disabled" type="text" class="caixa" id="caixa4"> <br>
+      <input disabled="disabled" type="text" class="caixa" id="caixa5"> <br>
+      <input disabled="disabled" type="text" class="caixa" id="caixa6"> <br>
+      <input disabled="disabled" type="text" class="caixa" id="caixa7"> <br>
+      <input disabled="disabled" type="text" class="caixa" id="caixa8"> <br>
+      <input disabled="disabled" type="text" class="caixa" id="caixa9"> <br>
+      <input disabled="disabled" type="text" class="caixa" id="caixa10"> <br>
+		</div>
+		<input onclick="desCriar()" class="btn btn-outline-primary btn-sm" type="button" id="btlimpar" value="Limpar">
+	</div>
+</body>
+
+</html>
