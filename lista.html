@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<title>Simulador:Lista</title>
+<head>
+	<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+			color: #333;
+			padding: 20px;
+		}
+
+		.container {
+			max-width: 600px;
+			margin: 0 auto;
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+
+		h3 {
+			margin-bottom: 20px;
+			text-align: center;
+		}
+
+		.input-group {
+			margin-bottom: 10px;
+		}
+
+		.input-group label {
+			display: inline-block;
+			width: 70px;
+			text-align: right;
+			margin-right: 10px;
+		}
+
+		.input-group input[type="number"],
+		.input-group input[type="button"] {
+			padding: 5px 10px;
+			font-size: 14px;
+		}
+
+		.btn {
+			display: inline-block;
+			padding: 5px 10px;
+			font-size: 14px;
+			background-color: #337ab7;
+			color: #fff;
+			border: none;
+			cursor: pointer;
+			border-radius: 3px;
+		}
+
+		.btn:hover {
+			background-color: #23527c;
+		}
+
+	
+	</style>
+
+	<script src="script3.js" ></script>
+
+</head>
+
+<body>
+	<div class="container">
+		<h3>Simulador: Estrutura Lista (LIFO)</h3>
+		<br>
+		<div class="input-group input-group-sm">
+			<div class="input-group-prepend">
+	
+			
+			
+		</div>
+		<br>
+		<div class="input-group input-group-sm">
+			<div class="input-group-prepend">
+				
+			</div>
+			
+			<input onclick="Add()" type="button" class="btn btn-outline-primary btn-sm" id="Add"  value="Adicionar">
+			<input onclick="AddEspec()" type="button" class="btn btn-outline-primary btn-sm" value="Adicionar Especifico">
+		</div>
+        <br>
+		<div class="input-group">
+			<input onclick="Remove()" class="btn btn-outline-primary btn-sm" type="button" id="btdesempilhar" value="Excluir">
+			<input onclick="Tamanho()" class="btn btn-outline-success btn-sm" type="button" id="btadd" value="&nbsp;&nbsp;Tamanho&nbsp;&nbsp;">
+			<input onclick="Empty()" class="btn btn-outline-success btn-sm" type="button" id="btsub" value="&nbsp;&nbsp;Vazia?&nbsp;&nbsp;">
+		</div>
+		<br>
+		
+		<br>
+		
+		
+		
+</body>
+
+</html>
